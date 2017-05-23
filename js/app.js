@@ -14,13 +14,16 @@ $("#rnjsus").on("submit", function(event) {
     url: "/api/" + lower + ".." + upper + "@" + times,
     success: function(response) {
       if (response.status) {
+        $("#message").empty();
         $("#results div").text(response.data.join(", "));
         $("#rnjsus").addClass("animated fadeOutLeft");
         $("#results").removeClass("hidden").addClass("animated fadeInRight");
+      } else {
+        $("#message").text(response.message);
       }
     },
-    error: function(error) {
-      console.error(error.message);
+    error: function(xhr, status, error) {
+      $("#message").text("The RNG genie is not with you today. :(");
     }
   });
 });
