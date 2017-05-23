@@ -1,14 +1,14 @@
 <?php
 
-require_once 'constants.php';
+require_once '../constants.php';
 
 header('Content-Type: application/json');
 
 /**
  * Matches API request in the pattern:
- *   /api/<lower>..<upper>[@<times>]
+ *   /api/v<x>/<lower>..<upper>[@<times>]
  */
-$pattern = '/^\/api\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?/';
+$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?/';
 $request = $_SERVER['REQUEST_URI'];
 
 $status = TRUE;

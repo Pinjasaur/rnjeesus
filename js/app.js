@@ -11,7 +11,7 @@ $("#rnjsus").on("submit", function(event) {
       times = $("#times").val();
 
   $.ajax({
-    url: "/api/" + lower + ".." + upper + "@" + times,
+    url: "/api/v1/" + lower + ".." + upper + "@" + times,
     success: function(response) {
       if (response.status) {
         $("#message").empty();
