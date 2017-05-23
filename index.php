@@ -44,6 +44,11 @@ if (!($lower && $upper)) {
   $status = FALSE;
   $message = 'Upper bound too high.';
 
+} else if ($times < 1) {
+
+  $status = FALSE;
+  $message = 'Times must be at least 1.';
+
 } else if ($times > TIMES_MAX) {
 
   $status = FALSE;
