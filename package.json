@@ -1,0 +1,16 @@
+{
+  "name": "rnjeesus",
+  "repository": "Pinjasaur/rnjeesus",
+  "author": "Paul Esch-Laurent",
+  "private": true,
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.0.0",
+    "gulp-util": "^3.0.8"
+  }
+}
