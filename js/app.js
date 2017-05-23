@@ -13,10 +13,20 @@ $("#rnjsus").on("submit", function(event) {
   $.ajax({
     url: "/api/" + lower + ".." + upper + "@" + times,
     success: function(response) {
-      console.log(response);
+      if (response.status) {
+        $("#results div").text(response.data.join(", "));
+        $("#rnjsus").addClass("animated fadeOutLeft");
+        $("#results").removeClass("hidden").addClass("animated fadeInRight");
+      }
     },
     error: function(error) {
       console.error(error.message);
     }
   });
+});
+
+$("#again").on("click", function(event) {
+  $("#results div").empty();
+  $("#rnjsus").removeClass("fadeOutLeft").addClass("fadeInLeft");
+  $("#results").addClass("hidden").removeClass("fadeInRight");
 });
