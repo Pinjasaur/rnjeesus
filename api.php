@@ -8,7 +8,7 @@ header('Content-Type: application/json');
  * Matches API request in the pattern:
  *   /api/<lower>..<upper>[@<times>]
  */
-$pattern = '/^\/api\/(\-?\d+)\.\.(\-?\d+)(?:@(\d+))?/';
+$pattern = '/^\/api\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?/';
 $request = $_SERVER['REQUEST_URI'];
 
 $status = TRUE;
