@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Random number generator as-a-service.">
+
+    <title>rnjees.us &mdash; RNG as a service</title>
+
+
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+
+    <form id="rnjsus">
+      <p>
+        I want
+        <input type="number" value="1" id="times">
+        random number<span id="plural"></span> between
+        <input type="number" value="1" id="lower">
+        and
+        <input type="number" value="10" id="upper">
+        <span class="dot">.</span>
+      </p>
+      <input type="submit" id="submit" value="Roll the dice!">
+    </form>
+
+    <footer>
+      <small>
+        A thing by <a href="https://paulisaweso.me/" target="_blank" rel="noreferrer">Paul</a> &amp; <a href="https://twitter.com/kwak_2331" target="_blank" rel="noreferrer">Kris</a>.
+      </small>
+    </footer>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

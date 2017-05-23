@@ -1,4 +1,4 @@
-# Routes requests to index.php
+# Routes requests to api.php
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . index.php [L]
+RewriteRule . api.php [L]
