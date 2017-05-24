@@ -13,9 +13,13 @@ function rng($lower, $upper, $times, $sort) {
   $sorted = $values;
 
   if ($sort === 'asc') {
+
     sort($sorted);
+
   } else {
+
     rsort($sorted);
+
   }
 
   return [
@@ -40,20 +44,20 @@ function median($array) {
 
   $length = count($array);
 
-  // middle value (if odd)
-  // middle - 1 value (if even)
+  // Middle value (if odd)
+  // Middle - 1 value (if even)
   $mid = floor(($length - 1) / 2);
 
-  // odd number of elements
+  // Odd number of elements
   if ($length % 2) {
 
-    // just take middle value
+    // Just take middle value
     $median = $array[$mid];
 
-  // even number of elements
+  // Even number of elements
   } else {
 
-    // average the two middle values
+    // Average the two middle values
     $low = $array[$mid];
     $high = $array[$mid + 1];
     $median = ($low + $high) / 2;
