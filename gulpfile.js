@@ -8,8 +8,8 @@ var gulp    = require("gulp"),
       },
       browserSync: {
         proxy: {
-       target: "http://localhost/",
-     },
+          target: "http://localhost/",
+        },
         notify: false,
         // Create a tunnel (if using `--tunnel`) with a subdomain of:
         // 1. the first "chunk" of the package.json `name`
