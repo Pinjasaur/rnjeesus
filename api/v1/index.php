@@ -8,9 +8,9 @@ header('Content-Type: application/json');
 
 /**
  * Matches API request in the pattern:
- *   /api/v<x>/<lower>..<upper>[@<times>]
+ *   /api/v<x>/<lower>..<upper>[@<times>][/(asc|dsc)]
  */
-$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?/';
+$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?(?:\/([ad]sc))?/';
 $request = $_SERVER['REQUEST_URI'];
 
 $status = TRUE;
@@ -24,6 +24,9 @@ $upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : NULL;
 
 // If not set, `times` defaults to 1
 $times = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
+
+// if not set, `sort` defaults to NULL
+$sort =  (isset($match[4]) && $match[4] !== '') ?       ($match[4]) : NULL;
 
 // Error checking
 if (!($lower && $upper)) {
@@ -58,7 +61,7 @@ if (!($lower && $upper)) {
 
 } else {
 
-  $data = rng($lower, $upper, $times);
+  $data = rng($lower, $upper, $times, $sort);
 
 }
 

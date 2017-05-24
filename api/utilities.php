@@ -1,6 +1,6 @@
 <?php
 
-function rng($lower, $upper, $times) {
+function rng($lower, $upper, $times, $sort) {
 
   $values = [];
 
@@ -12,10 +12,14 @@ function rng($lower, $upper, $times) {
 
   $sorted = $values;
 
-  sort($sorted);
+  if ($sort === 'asc') {
+    sort($sorted);
+  } else {
+    rsort($sorted);
+  }
 
   return [
-    'values' => $values,
+    'values' => ($sort !== NULL) ? $sorted : $values,
     'statistics' => [
       'minimum' => min($values),
       'maximum' => max($values),
@@ -27,7 +31,9 @@ function rng($lower, $upper, $times) {
 }
 
 function mean($array) {
+
   return array_sum($array) / count($array);
+
 }
 
 function median($array) {
@@ -55,4 +61,5 @@ function median($array) {
   }
 
   return $median;
+
 }
