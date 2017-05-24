@@ -88,7 +88,7 @@ $callback = (isset($_REQUEST['callback']) && $_REQUEST['callback'] !== '') ?
 
 if ($callback !== NULL) {
 
-  echo($callback . '(' . json_encode($response) . ');');
+  echo $callback . '(' . json_encode($response) . ');';
 
 } else {
 
