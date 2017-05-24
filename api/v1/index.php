@@ -1,16 +1,29 @@
 <?php
 
-require_once '../constants.php';
-
-require_once '../utilities.php';
-
 header('Content-Type: application/json');
 
+require_once '../constants.php';
+require_once '../utilities.php';
+
 /**
- * Matches API request in the pattern:
+ * Regular expression for matching API request.
+ * Entire expression matches the following:
  *   /api/v<x>/<lower>..<upper>[@<times>][/(asc|dsc)]
+ *      [1]          [2]          [3]         [4]
  */
-$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?(?:\/([ad]sc))?/';
+
+// 1. matches /api/v<x>/
+$pattern  = '/^\/api\/v\d\/';
+
+// 2. matches <lower>..<upper>
+$pattern .= '(-?\d+)\.\.(-?\d+)';
+
+// 3. matches [@<times>]
+$pattern .= '(?:@(-?\d+))?';
+
+// 4. matches [/(asc|dsc)]
+$pattern .= '(?:\/([ad]sc))?/';
+
 $request = $_SERVER['REQUEST_URI'];
 
 $status = TRUE;
