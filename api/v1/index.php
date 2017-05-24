@@ -8,9 +8,9 @@ header('Content-Type: application/json');
 
 /**
  * Matches API request in the pattern:
- *   /api/v<x>/<lower>..<upper>[@<times>][~<step>]
+ *   /api/v<x>/<lower>..<upper>[@<times>]
  */
-$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?(?:~(-?\d+))?/';
+$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?/';
 $request = $_SERVER['REQUEST_URI'];
 
 $status = TRUE;
@@ -19,14 +19,11 @@ $data = [];
 
 preg_match($pattern, $request, $match);
 
-$lower = (isset($match[1])) ? $match[1] : NULL;
-$upper = (isset($match[2])) ? $match[2] : NULL;
+$lower = (isset($match[1]) && $match[1] !== '') ? intval($match[1]) : NULL;
+$upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : NULL;
 
 // If not set, `times` defaults to 1
-$times = (isset($match[3])) ? $match[3] : 1;
-
-// If not set, `step` defaults to 1
-$step = (isset($match[4])) ? $match[4] : 1;
+$times = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
 
 // Error checking
 if (!($lower && $upper)) {
@@ -39,15 +36,15 @@ if (!($lower && $upper)) {
   $status = FALSE;
   $message = 'Lower bound cannot be greater than upper bound.';
 
-} else if ($lower < PHP_INT_MIN) {
+} else if ($lower < BOUNDS_MIN) {
 
   $status = FALSE;
-  $message = 'Lower bound too low.';
+  $message = 'Lower cannot be smaller than ' . BOUNDS_MIN . '.';
 
-} else if ($upper > PHP_INT_MAX) {
+} else if ($upper > BOUNDS_MAX) {
 
   $status = FALSE;
-  $message = 'Upper bound too high.';
+  $message = 'Lower cannot be larger than ' . BOUNDS_MAX . '.';
 
 } else if ($times < 1) {
 
@@ -58,16 +55,6 @@ if (!($lower && $upper)) {
 
   $status = FALSE;
   $message = 'Times cannot be larger than ' . TIMES_MAX . '.';
-
-} elseif ($step < 1) {
-
-  $status = FALSE;
-  $message = 'Step cannot be less than 1.';
-
-} elseif ($step > ($upper - $lower)) {
-
-  $status = FALSE;
-  $message = 'Step cannot be greater than the range.';
 
 } else {
 

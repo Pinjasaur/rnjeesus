@@ -10,6 +10,8 @@ function rng($lower, $upper, $times) {
 
   }
 
-  return $numbers;
+  return [
+    'numbers' => $numbers
+  ];
 
 }
