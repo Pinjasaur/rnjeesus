@@ -10,7 +10,7 @@ header('Content-Type: application/json');
  * Matches API request in the pattern:
  *   /api/v<x>/<lower>..<upper>[@<times>][~<step]
  */
-$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?(?:~(\d+))?/';
+$pattern = '/^\/api\/v\d\/(-?\d+)\.\.(-?\d+)(?:@(-?\d+))?(?:~(-?\d+))?/';
 $request = $_SERVER['REQUEST_URI'];
 
 $status = TRUE;
@@ -37,7 +37,7 @@ if (!($lower && $upper)) {
 } else if ($lower > $upper) {
 
   $status = FALSE;
-  $message = 'Lower bounds cannot be greater than upper bounds.';
+  $message = 'Lower bound cannot be greater than upper bound.';
 
 } else if ($lower < PHP_INT_MIN) {
 
