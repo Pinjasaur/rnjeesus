@@ -15,7 +15,7 @@ $("#rnjsus").on("submit", function(event) {
     success: function(response) {
       if (response.status) {
         $("#message").empty();
-        $("#results div").text(response.data.join(", "));
+        $("#results div").text(response.data.values.join(", "));
         $("#rnjsus").addClass("animated fadeOutLeft");
         $("#results").removeClass("hidden").addClass("animated fadeInRight");
       } else {
