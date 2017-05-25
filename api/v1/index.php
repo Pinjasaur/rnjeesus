@@ -8,7 +8,7 @@ require_once '../utilities.php';
 /**
  * Regular expression for matching API request.
  * Entire expression matches the following:
- *   /api/v<x>/<lower>..<upper>[@<times>][/(asc|dsc)]
+ *   /api/v<x>/<lower>..<upper>[@<quantity>][/(asc|dsc)]
  *      [1]          [2]          [3]         [4]
  */
 
@@ -18,7 +18,7 @@ $pattern  = '/^\/api\/v\d\/';
 // 2. matches <lower>..<upper>
 $pattern .= '(-?\d+)\.\.(-?\d+)';
 
-// 3. matches [@<times>]
+// 3. matches [@<quantity>]
 $pattern .= '(?:@(-?\d+))?';
 
 // 4. matches [/(asc|dsc)]
@@ -35,11 +35,11 @@ preg_match($pattern, $request, $match);
 $lower = (isset($match[1]) && $match[1] !== '') ? intval($match[1]) : NULL;
 $upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : NULL;
 
-// If not set, `times` defaults to 1
-$times = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
+// If not set, `quantity` defaults to 1
+$quantity = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
 
 // if not set, `sort` defaults to NULL
-$sort =  (isset($match[4]) && $match[4] !== '') ?       ($match[4]) : NULL;
+$sort = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
 
 // Error checking
 if (!($lower && $upper)) {
@@ -62,19 +62,19 @@ if (!($lower && $upper)) {
   $status = FALSE;
   $message = 'Lower cannot be larger than ' . BOUNDS_MAX . '.';
 
-} else if ($times < 1) {
+} else if ($quantity < 1) {
 
   $status = FALSE;
-  $message = 'Times must be at least 1.';
+  $message = 'quantity must be at least 1.';
 
-} else if ($times > TIMES_MAX) {
+} else if ($quantity > quantity_MAX) {
 
   $status = FALSE;
-  $message = 'Times cannot be larger than ' . TIMES_MAX . '.';
+  $message = 'quantity cannot be larger than ' . quantity_MAX . '.';
 
 } else {
 
-  $data = rng($lower, $upper, $times, $sort);
+  $data = rng($lower, $upper, $quantity, $sort);
 
 }
 

@@ -1,10 +1,10 @@
 <?php
 
-function rng($lower, $upper, $times, $sort) {
+function rng($lower, $upper, $quantity, $sort) {
 
   $values = [];
 
-  for ($i = 0; $i < $times; $i++) {
+  for ($i = 0; $i < $quantity; $i++) {
 
     $values[] = random_int($lower, $upper);
 
