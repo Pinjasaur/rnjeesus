@@ -1,6 +1,6 @@
 <?php
 
-define('TIMES_MAX', 1024);
+define('QUANTITY_MAX', 1024);
 
 define('BOUNDS_MIN', -1048576);
 
