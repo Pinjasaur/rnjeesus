@@ -9,7 +9,7 @@ require_once '../utilities.php';
  * Regular expression for matching API request.
  * Entire expression matches the following:
  *   /api/v<x>/<lower>..<upper>[@<quantity>][/(asc|dsc)]
- *      [1]          [2]          [3]         [4]
+ *      [1]          [2]           [3]           [4]
  */
 
 // 1. matches /api/v<x>/
@@ -38,7 +38,7 @@ $upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : NULL;
 // If not set, `quantity` defaults to 1
 $quantity = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
 
-// if not set, `sort` defaults to NULL
+// If not set, `sort` defaults to NULL
 $sort = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
 
 // Error checking
