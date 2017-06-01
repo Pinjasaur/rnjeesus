@@ -65,12 +65,12 @@ if (!($lower && $upper)) {
 } else if ($quantity < 1) {
 
   $status = FALSE;
-  $message = 'quantity must be at least 1.';
+  $message = 'Quantity must be at least 1.';
 
 } else if ($quantity > QUANTITY_MAX) {
 
   $status = FALSE;
-  $message = 'quantity cannot be larger than ' . QUANTITY_MAX . '.';
+  $message = 'Quantity cannot be larger than ' . QUANTITY_MAX . '.';
 
 } else {
 
