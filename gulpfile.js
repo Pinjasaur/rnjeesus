@@ -26,10 +26,12 @@ var gulp    = require("gulp"),
 gulp.task("sass", function() {
   return gulp.src("sass/*.scss")
     .pipe(plugins.plumber())
+    .pipe(plugins.sourcemaps.init())
     .pipe(plugins.sass.sync())
     .pipe(plugins.autoprefixer(config.autoprefixer))
+    .pipe(plugins.sourcemaps.write("."))
     .pipe(gulp.dest("css/"))
-    .pipe(server.reload({ stream: true }));
+    .pipe(server.stream({ match: "**/*.css" }));
 });
 
 // Spin up server with live-reloading
