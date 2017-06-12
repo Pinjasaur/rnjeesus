@@ -37,9 +37,9 @@ gulp.task("sass", function() {
 // Spin up server with live-reloading
 gulp.task("serve", function() {
   server.init(config.browserSync);
-  gulp.watch("sass/**/*.scss", ["sass"]);
-  gulp.watch("js/**/*.js", server.reload);
-  gulp.watch("*.{php,html}", server.reload)
+  gulp.watch("sass/**/*.scss",  ["sass"]);
+  gulp.watch("js/**/*.js",      server.reload);
+  gulp.watch("**/*.{php,html}", server.reload)
 });
 
 gulp.task("default", ["serve"]);
