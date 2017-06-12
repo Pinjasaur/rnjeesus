@@ -2,4 +2,4 @@
 RewriteEngine on
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . /api/v1/index.php [L]
+RewriteRule . /api/index.php [L]
