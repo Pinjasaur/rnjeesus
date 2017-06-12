@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: calc(1em + .5vw);
+  background-color: #512da8;
+  background-image: linear-gradient(#512da8, #e64a19);
+  background: linear-gradient(#512da8, #e64a19);
+  box-sizing: border-box;
+  font-family: Khula, sans-serif;
+}

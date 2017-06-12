@@ -1,0 +1,19 @@
+footer {
+  padding-bottom: .5em;
+  color: #333;
+
+  a {
+    &:link {
+      color: #333;
+    }
+
+    &:hover,
+    &:active {
+      color: darken(#333, 5%);
+    }
+
+    &:visited {
+      color: lighten(#333, 5%);
+    }
+  }
+}
