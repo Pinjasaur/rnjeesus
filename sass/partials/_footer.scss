@@ -1,19 +1,26 @@
-footer {
-  padding-bottom: .5em;
-  color: #333;
+.site-footer {
+  font-size: .75rem;
+
+  ul {
+    padding: 0;
+    margin: .25em;
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+
+      + li::before {
+        content: " | ";
+      }
+    }
+  }
 
   a {
-    &:link {
-      color: #333;
-    }
+    color: #000;
 
     &:hover,
     &:active {
-      color: darken(#333, 5%);
-    }
-
-    &:visited {
-      color: lighten(#333, 5%);
+      text-decoration: none;
     }
   }
 }
