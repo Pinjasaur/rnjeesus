@@ -25,13 +25,13 @@
       $.ajax({
         url: "/api/" + lower + ".." + upper + "@" + quantity,
         success: function(response) {
-          $("body").css("transform", "translateX(-80%)");
           if (response.status) {
             $("#results .content").empty();
             $("#results .content").text(response.data.values.join(", "));
           } else {
-            console.log(response.message);
+            $("#results .content").text(response.message);
           }
+          $("body").css("transform", "translateX(-80%)");
         },
         error: function(xhr, status, error) {
           console.error("The RNG genie is not with you today. :(");
