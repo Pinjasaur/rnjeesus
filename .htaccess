@@ -1,5 +1,5 @@
-# Routes requests to api.php
+# Routes requests to API
 RewriteEngine on
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule . /api/index.php [L]
+RewriteRule . /lib/api.php [L]
