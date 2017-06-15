@@ -2,7 +2,11 @@ var gulp    = require("gulp"),
     plugins = require("gulp-load-plugins")(),
     server  = require("browser-sync").create(),
     pkg     = require("./package.json"),
+    production = (plugins.util.env.prod ||plugins.util.env.production) ? true : false,
     config  = {
+      sass: {
+        outputStyle: (production) ? "compressed" : "expanded"
+      },
       autoprefixer: {
         browsers: ["last 2 versions"]
       },
@@ -26,17 +30,24 @@ var gulp    = require("gulp"),
 gulp.task("sass", function() {
   return gulp.src("sass/*.scss")
     .pipe(plugins.plumber())
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.sass.sync())
+    .pipe(plugins.if(!production, plugins.sourcemaps.init()))
+    .pipe(plugins.sass.sync(config.sass))
     .pipe(plugins.autoprefixer(config.autoprefixer))
-    .pipe(plugins.sourcemaps.write("."))
+    .pipe(plugins.if(!production, plugins.sourcemaps.write(".")))
     .pipe(gulp.dest("css/"))
     .pipe(server.stream({ match: "**/*.css" }));
 });
 
-// Spin up server with live-reloading
-gulp.task("serve", function() {
-  server.init(config.browserSync);
+// Build
+gulp.task("build", ["sass"]);
+
+// Spin up server
+gulp.task("server", ["build"], function(done) {
+  server.init(config.browserSync, done);
+})
+
+// Serve content and watch for changes
+gulp.task("serve", ["server"], function() {
   gulp.watch("sass/**/*.scss",  ["sass"]);
   gulp.watch("js/**/*.js",      server.reload);
   gulp.watch("**/*.{php,html}", server.reload)
