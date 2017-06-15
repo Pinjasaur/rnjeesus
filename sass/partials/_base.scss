@@ -4,16 +4,21 @@
   box-sizing: inherit;
 }
 
-html,
-body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
 html {
+  color: darken(#fff, 5%);
   font-size: calc(1em + .5vw);
+  line-height: 1.5;
   background-color: #673193;
   background-image: linear-gradient(#673193, #D4462A);
   box-sizing: border-box;
   font-family: Khula, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: currentColor;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
 }

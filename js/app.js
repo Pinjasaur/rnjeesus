@@ -1,35 +1,53 @@
-$("#times").on("change", function(event) {
-  var val = parseInt($(this).val(), 10);
-  $("#plural").text((val !== -1 && val !== 1) ? "s" : "");
-});
+(function($, window, document, undefined) {
 
-$("#rnjsus").on("submit", function(event) {
-  event.preventDefault();
+  "use strict";
 
-  var lower = $("#lower").val(),
-      upper = $("#upper").val(),
-      times = $("#times").val();
+  $(function() {
 
-  $.ajax({
-    url: "/api/" + lower + ".." + upper + "@" + times,
-    success: function(response) {
-      if (response.status) {
-        $("#message").empty();
-        $("#results div").text(response.data.values.join(", "));
-        $("#rnjsus").addClass("animated fadeOutLeft");
-        $("#results").removeClass("hidden").addClass("animated fadeInRight");
-      } else {
-        $("#message").text(response.message);
-      }
-    },
-    error: function(xhr, status, error) {
-      $("#message").text("The RNG genie is not with you today. :(");
-    }
+    $("#rnjeesus").on("submit", function(event) {
+      event.preventDefault();
+
+      var lower = $("#lower-bound").val(),
+          upper = $("#upper-bound").val(),
+          quantity = $("#quantity").val();
+
+      $.ajax({
+        url: "/api/" + lower + ".." + upper + "@" + quantity,
+        success: function(response) {
+          $("body").css("transform", "translateX(-80%)");
+          if (response.status) {
+            $("#results .content").empty();
+            $("#results .content").text(response.data.values.join(", "));
+          } else {
+            console.log(response.message);
+          }
+        },
+        error: function(xhr, status, error) {
+          console.error("The RNG genie is not with you today. :(");
+        }
+      });
+
+      return false;
+    });
+
+    $(".increment, .decrement").on("click", function(event) {
+
+      var value = parseInt($("#" + $(this).data("for")).val(), 10);
+
+      value = ($(this).val() === "+") ? ++value : --value;
+
+      $("#" + $(this).data("for")).val(value);
+
+    });
+
+    $(".btn[data-target]").on("click", function(event) {
+
+      var target = $(this).data("target");
+
+      $("body").css("transform", "translateX(" + ((target - 1) * -20) + "%)");
+
+    });
+
   });
-});
 
-$("#again").on("click", function(event) {
-  $("#results div").empty();
-  $("#rnjsus").removeClass("fadeOutLeft").addClass("fadeInLeft");
-  $("#results").addClass("hidden").removeClass("fadeInRight");
-});
+})(jQuery, window, document);

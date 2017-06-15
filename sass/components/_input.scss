@@ -1,0 +1,12 @@
+input[type="number"] {
+  text-align: center;
+  width: 5rem;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  padding: .25em;
+  color: darken(#fff, 2.5%);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid darken(#fff, 2.5%);
+  outline: none;
+}

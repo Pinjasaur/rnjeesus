@@ -1,5 +1,10 @@
 .site-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
   font-size: .75rem;
+  color: lighten(#000, 5%);
 
   ul {
     padding: 0;
@@ -12,15 +17,6 @@
       + li::before {
         content: " | ";
       }
-    }
-  }
-
-  a {
-    color: #000;
-
-    &:hover,
-    &:active {
-      text-decoration: none;
     }
   }
 }

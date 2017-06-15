@@ -1,79 +1,45 @@
+html,
 body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-form {
-  text-align: center;
-  margin: auto 0;
-  color: #fff;
-  padding: 3em;
-  border-radius: 5px;
-
-  @media (max-width: 600px) {
-    padding: 2em;
-  }
-
-  @media (max-width: 450px) {
-    padding: 1em;
-  }
-
-  input[type="number"] {
-    width: 3em;
-
-    &:not([id="times"]) {
-      width: 6em;
-    }
-
-    @media (max-width: 550px) {
-      display: block;
-      width: 100% !important;
-      padding: .5em;
-      margin: .5em 0;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  input[type="submit"] {
-    @media (max-width: 550px) {
-      width: 100%;
-    }
-  }
-}
-
-.dot {
-  @media (max-width: 550px) {
-    display: none;
-  }
-}
-
-.results {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+
+body {
+  width: 500vw;
+  transition: all .5s;
+}
+
+.step {
+  float: left;
+  height: 100vh;
+  width: 100vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 4em;
-  line-height: 1.4;
-  color: #fff;
-  font-weight: bold;
+  flex-direction: column;
 
-  div {
-    font-size: 2.5em;
-    margin: auto 0;
+  > header {
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-bottom: 1px solid #fff;
   }
 
-  button {
-    margin-bottom: 15%;
+  > .content {
+    text-align: center;
+    padding: 3em .5em 4em;
+    flex: 0;
   }
+}
+
+.input {
+  justify-content: center;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 2em;
+}
+
+p + p {
+  margin-top: 0;
 }

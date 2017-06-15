@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="description" content="Random number generator as-a-service.">
 
     <title>rnjees.us &mdash; RNG as a service</title>
@@ -13,43 +13,116 @@
   </head>
   <body>
 
-    <div id="results" class="results hidden">
-      <div></div>
-      <button class="btn" id="again">Roll again!</button>
-    </div>
+    <section class="step" data-step="1">
 
-    <form id="rnjsus">
-      <p>
-        I want
-        <input type="number" value="1" id="times">
-        random number<span id="plural"></span> between
-        <input type="number" value="1" id="lower">
-        and
-        <input type="number" value="10" id="upper">
-        <span class="dot">.</span>
-      </p>
+      <header>
+        <h1>rnjees.us</h1>
+      </header>
 
-      <p id="message"></p>
+      <div class="content">
 
-      <input type="submit" id="submit" class="btn" value="Roll the dice!">
-    </form>
+        <p>Let's generate some RNG.</p>
+        <p>If you'd prefer, there's an <a href="#0">API</a>.</p>
 
-    <footer class="site-footer">
-      <ul>
-        <li>
-          By
-          <a href="https://twitter.com/Pinjasaur">Paul</a>
-          &amp;
-          <a href="https://twitter.com/kwak_2331">Kris</a>
-        </li>
-        <li>
-          <a href="https://github.com/Pinjasaur/rnjeesus">Source</a>
-        </li>
-        <li>
-          <a href="#0">API</a>
-        </li>
-      </ul>
-    </footer>
+      </div>
+
+      <button class="btn" data-target="2">Begin &rarr;</button>
+
+      <footer class="site-footer">
+        <ul>
+          <li>
+            By
+            <a href="https://twitter.com/Pinjasaur">Paul</a>
+            &amp;
+            <a href="https://twitter.com/kwak_2331">Kris</a>
+          </li>
+          <li>
+            <a href="https://github.com/Pinjasaur/rnjeesus">Source</a>
+          </li>
+          <li>
+            <a href="#0">API</a>
+          </li>
+        </ul>
+      </footer>
+
+    </section>
+    <section class="step" data-step="2">
+
+      <header>
+        <h1>Lower bound</h1>
+      </header>
+
+      <div class="content">
+
+        <p>Choose your lower bound.</p>
+
+        <div class="input">
+          <input type="button" class="btn decrement" value="-" data-for="lower-bound">
+          <input type="number" id="lower-bound" value="1">
+          <input type="button" class="btn increment" value="+" data-for="lower-bound">
+        </div>
+
+      </div>
+
+      <button class="btn" data-target="3">Next &rarr;</button>
+
+    </section>
+    <section class="step" data-step="3">
+
+      <header>
+        <h1>Upper bound</h1>
+      </header>
+
+      <div class="content">
+
+        <p>Choose your upper bound.</p>
+
+        <div class="input">
+          <input type="button" class="btn decrement" value="-" data-for="upper-bound">
+          <input type="number" id="upper-bound" value="5">
+          <input type="button" class="btn increment" value="+" data-for="upper-bound">
+        </div>
+
+      </div>
+
+      <button class="btn" data-target="4">Next &rarr;</button>
+
+    </section>
+    <section class="step" data-step="4">
+
+      <header>
+        <h1>Quantity</h1>
+      </header>
+
+      <div class="content">
+
+        <p>How many numbers do you want?</p>
+
+        <div class="input">
+          <input type="button" class="btn decrement" value="-" data-for="quantity">
+          <input type="number" id="quantity" value="1">
+          <input type="button" class="btn increment" value="+" data-for="quantity">
+        </div>
+
+      </div>
+
+      <form id="rnjeesus">
+        <button class="btn">RNG Time!</button>
+      </form>
+
+    </section>
+
+    <section class="step" id="results" data-step="5">
+
+      <header>
+        <h1>Your RNG</h1>
+      </header>
+
+      <div class="content"></div>
+
+      <button class="btn" data-target="2">Roll Again?</button>
+
+    </section>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/app.js"></script>
