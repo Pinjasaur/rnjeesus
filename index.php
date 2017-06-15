@@ -1,3 +1,8 @@
+<?php
+
+require_once 'lib/constants.php';
+
+?>
 <!doctype html>
 <html lang="en-US">
   <head>
@@ -59,7 +64,7 @@
 
         <div class="input">
           <input type="button" class="btn decrement" value="-" data-for="lower-bound">
-          <input type="number" id="lower-bound" value="1">
+          <input type="number" id="lower-bound" value="1" min="<?php echo BOUNDS_MIN ?>" max="<?php echo BOUNDS_MAX ?>">
           <input type="button" class="btn increment" value="+" data-for="lower-bound">
         </div>
 
@@ -80,7 +85,7 @@
 
         <div class="input">
           <input type="button" class="btn decrement" value="-" data-for="upper-bound">
-          <input type="number" id="upper-bound" value="5">
+          <input type="number" id="upper-bound" value="5" min="<?php echo BOUNDS_MIN ?>" max="<?php echo BOUNDS_MAX ?>">
           <input type="button" class="btn increment" value="+" data-for="upper-bound">
         </div>
 
@@ -101,7 +106,7 @@
 
         <div class="input">
           <input type="button" class="btn decrement" value="-" data-for="quantity">
-          <input type="number" id="quantity" value="1">
+          <input type="number" id="quantity" value="1" min="<?php echo QUANTITY_MIN ?>" max="<?php echo QUANTITY_MAX ?>">
           <input type="button" class="btn increment" value="+" data-for="quantity">
         </div>
 

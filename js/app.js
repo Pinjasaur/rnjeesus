@@ -34,7 +34,7 @@
           $("body").css("transform", "translateX(-80%)");
         },
         error: function(xhr, status, error) {
-          console.error("The RNG genie is not with you today. :(");
+          $("#results .content").html("The RNG genie is not with you today. :(<br>If the issue persists, <a href='https://github.com/Pinjasaur/rnjeesus/issues'>let me know</a>.");
         }
       });
 
@@ -43,9 +43,14 @@
 
     $(".increment, .decrement").on("click", function(event) {
 
-      var value = parseInt($("#" + $(this).data("for")).val(), 10);
+      var $input = $("#" + $(this).data("for")),
+          value = parseInt($input.val(), 10),
+          min = $input.attr("min"),
+          max = $input.attr("max");
 
       value = ($(this).val() === "+") ? ++value : --value;
+
+      value = Math.min(Math.max(value, min), max);
 
       $("#" + $(this).data("for")).val(value);
 
