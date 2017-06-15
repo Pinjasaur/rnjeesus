@@ -16,4 +16,4 @@ Because [RNG + Jesus](https://www.urbandictionary.com/define.php?term=rn+jesus).
 
 ## License
 
-[MIT](/LICENSE)
+[MIT](/LICENSE).
