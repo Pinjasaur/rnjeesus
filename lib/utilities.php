@@ -1,6 +1,6 @@
 <?php
 
-function rng($lower, $upper, $quantity, $sort) {
+function rng($lower, $upper, $quantity, $order) {
 
   $values = [];
 
@@ -12,7 +12,7 @@ function rng($lower, $upper, $quantity, $sort) {
 
   $sorted = $values;
 
-  if ($sort === 'asc') {
+  if ($order === 'asc') {
 
     sort($sorted);
 
@@ -23,7 +23,7 @@ function rng($lower, $upper, $quantity, $sort) {
   }
 
   return [
-    'values' => ($sort !== NULL) ? $sorted : $values,
+    'values' => ($order !== NULL) ? $sorted : $values,
     'statistics' => [
       'minimum' => min($values),
       'maximum' => max($values),

@@ -39,7 +39,7 @@ $upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : NULL;
 $quantity = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
 
 // If not set, `sort` defaults to NULL
-$sort = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
+$order = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
 
 // Error checking
 if (!($lower && $upper)) {
@@ -74,7 +74,7 @@ if (!($lower && $upper)) {
 
 } else {
 
-  $data = rng($lower, $upper, $quantity, $sort);
+  $data = rng($lower, $upper, $quantity, $order);
 
 }
 
