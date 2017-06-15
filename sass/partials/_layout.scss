@@ -9,6 +9,13 @@ body {
   transition: all .5s;
 }
 
+.backplate {
+  position: fixed;
+  z-index: -1;
+  width: 500%;
+  height: 100%;
+}
+
 .step {
   float: left;
   height: 100vh;

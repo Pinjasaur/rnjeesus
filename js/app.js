@@ -4,6 +4,17 @@
 
   $(function() {
 
+    var width = $(window).width(),
+        height = $(window).height();
+
+    $.firefly({
+      color: "#fff",
+      minPixel: 1,
+      maxPixel: 2,
+      total : ((width * height) / 8192),
+      on: "#backplate"
+    });
+
     $("#rnjeesus").on("submit", function(event) {
       event.preventDefault();
 
