@@ -42,7 +42,7 @@ $quantity = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
 $order = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
 
 // Error checking
-if (!($lower && $upper)) {
+if (!($lower !== NULL && $upper !== NULL)) {
 
   $status = FALSE;
   $message = 'Needs a lower and upper bound.';
