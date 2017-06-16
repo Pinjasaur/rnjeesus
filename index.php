@@ -28,7 +28,7 @@ require_once 'lib/constants.php';
       <div class="content">
 
         <p>Let's generate some RNG.</p>
-        <p>If you'd prefer, there's an <a href="#0">API</a>.</p>
+        <p>If you'd prefer, there's an <a href="https://github.com/Pinjasaur/rnjeesus/blob/master/docs/API.md">API</a>.</p>
 
       </div>
 
@@ -46,7 +46,7 @@ require_once 'lib/constants.php';
             <a href="https://github.com/Pinjasaur/rnjeesus">Source</a>
           </li>
           <li>
-            <a href="#0">API</a>
+            <a href="https://github.com/Pinjasaur/rnjeesus/blob/master/docs/API.md">API</a>
           </li>
         </ul>
       </footer>
