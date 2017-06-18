@@ -132,5 +132,14 @@ require_once 'lib/constants.php';
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/jquery.firefly.js"></script>
     <script src="js/app.js"></script>
+    <script>
+      !function(r,n,g){r.GoogleAnalyticsObject=g;r[g]||(r[g]=function(){
+      (r[g].q=r[g].q||[]).push(arguments)});r[g].l=+new Date;var s=n.createElement('script'),
+      e=n.scripts[0];s.src="//www.google-analytics.com/analytics.js";
+      e.parentNode.insertBefore(s,e)}(window,document,"ga");
+
+      ga("create", "UA-76467706-6", "auto");
+      ga("send", "pageview");
+    </script>
   </body>
 </html>
