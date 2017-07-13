@@ -14,7 +14,7 @@ require_once 'lib/constants.php';
     <title>rnjees.us &mdash; RNG as a service</title>
 
     <link href="https://fonts.googleapis.com/css?family=Khula" rel="stylesheet">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/app.css?<?php echo filemtime('css/app.css') ?>">
   </head>
   <body>
     <div class="backplate" id="backplate"></div>
@@ -131,7 +131,7 @@ require_once 'lib/constants.php';
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/jquery.firefly.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app.js?<?php echo filemtime('js/app.js') ?>"></script>
     <script>
       !function(r,n,g){r.GoogleAnalyticsObject=g;r[g]||(r[g]=function(){
       (r[g].q=r[g].q||[]).push(arguments)});r[g].l=+new Date;var s=n.createElement('script'),
