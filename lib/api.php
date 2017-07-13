@@ -85,8 +85,8 @@ $response = [
 ];
 
 // Provide callback if it's a JSONP request
-$callback = (isset($_REQUEST['callback']) && $_REQUEST['callback'] !== '') ?
-  $_REQUEST['callback'] :
+$callback = (isset($_GET['callback']) && $_GET['callback'] !== '') ?
+  $_GET['callback'] :
   NULL;
 
 if ($callback !== NULL) {
