@@ -1,7 +1,5 @@
 <?php
 
-header('Content-Type: application/json');
-
 require_once 'constants.php';
 require_once 'utilities.php';
 
@@ -91,10 +89,12 @@ $callback = (isset($_GET['callback']) && $_GET['callback'] !== '') ?
 
 if ($callback !== NULL) {
 
+  header('Content-Type: application/javascript');
   echo $callback . '(' . json_encode($response) . ');';
 
 } else {
 
+  header('Content-Type: application/json');
   echo json_encode($response);
 
 }
