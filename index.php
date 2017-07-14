@@ -40,7 +40,7 @@ require_once 'lib/constants.php';
             By
             <a href="https://twitter.com/Pinjasaur">Paul</a>
             &amp;
-            <a href="https://twitter.com/kwak_2331">Kris</a>
+            <a href="https://twitter.com/_kwakr">Kris</a>
           </li>
           <li>
             <a href="https://github.com/Pinjasaur/rnjeesus">Source</a>
