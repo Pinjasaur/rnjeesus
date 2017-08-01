@@ -38,7 +38,7 @@ require_once 'lib/constants.php';
         <ul>
           <li>
             By
-            <a href="https://twitter.com/Pinjasaur">Paul</a>
+            <a href="https://paulisaweso.me/">Paul</a>
             &amp;
             <a href="https://twitter.com/_kwakr">Kris</a>
           </li>

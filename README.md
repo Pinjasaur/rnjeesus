@@ -12,7 +12,7 @@ Because [RNG + Jesus](https://www.urbandictionary.com/define.php?term=rn+jesus).
 
 ## Who
 
-[Paul Esch-Laurent](https://twitter.com/Pinjasaur) & [Kristoff Arneson](https://twitter.com/_kwakr).
+[Paul Esch-Laurent](https://paulisaweso.me/) & [Kristoff Arneson](https://twitter.com/_kwakr).
 
 ## License
 
