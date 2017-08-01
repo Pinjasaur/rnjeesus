@@ -24,7 +24,8 @@ $pattern .= '(?:\/([ad]sc))?/';
 
 $request = $_SERVER['REQUEST_URI'];
 
-$status = TRUE;
+// Assume it failed
+$status = FALSE;
 $message = 'The RNG genie has blessed you.';
 $data = [];
 
@@ -42,36 +43,31 @@ $order = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
 // Error checking
 if (!($lower !== NULL && $upper !== NULL)) {
 
-  $status = FALSE;
   $message = 'Needs a lower and upper bound.';
 
 } else if ($lower > $upper) {
 
-  $status = FALSE;
   $message = 'Lower bound cannot be greater than upper bound.';
 
 } else if ($lower < BOUNDS_MIN) {
 
-  $status = FALSE;
   $message = 'Lower cannot be smaller than ' . BOUNDS_MIN . '.';
 
 } else if ($upper > BOUNDS_MAX) {
 
-  $status = FALSE;
   $message = 'Lower cannot be larger than ' . BOUNDS_MAX . '.';
 
 } else if ($quantity < 1) {
 
-  $status = FALSE;
   $message = 'Quantity must be at least 1.';
 
 } else if ($quantity > QUANTITY_MAX) {
 
-  $status = FALSE;
   $message = 'Quantity cannot be larger than ' . QUANTITY_MAX . '.';
 
 } else {
 
+  $status = TRUE;
   $data = rng($lower, $upper, $quantity, $order);
 
 }
