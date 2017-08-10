@@ -14,4 +14,4 @@
 # TECHNOLOGY COLOPHON
 
     Front-end: HTML5, CSS3, Sass, Normalize.css
-    Back-end: PHP, Nginx, Let's Encrypt
+    Back-end: PHP7, NGINX, Let's Encrypt
