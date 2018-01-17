@@ -51,11 +51,11 @@ if (!($lower !== NULL && $upper !== NULL)) {
 
 } else if ($lower < BOUNDS_MIN) {
 
-  $message = 'Lower cannot be smaller than ' . BOUNDS_MIN . '.';
+  $message = 'Lower bound cannot be smaller than ' . BOUNDS_MIN . '.';
 
 } else if ($upper > BOUNDS_MAX) {
 
-  $message = 'Lower cannot be larger than ' . BOUNDS_MAX . '.';
+  $message = 'Upper bound cannot be larger than ' . BOUNDS_MAX . '.';
 
 } else if ($quantity < 1) {
 
