@@ -44,7 +44,7 @@
         $("body").css("transform", "translateX(-80%)");
       },
       error: function(xhr, status, error) {
-        $("#results .content").html("The RNG genie is not with you today. :(<br>If the issue persists, <a href='https://github.com/Pinjasaur/rnjeesus/issues'>let me know</a>.");
+        $("#results .content").html("The RNG genie is not with you today. :(<br>If the issue persists, <a href='https://github.com/Pinjasaur/rnjeesus/issues/new?title=Website+API+Issue&body=Explain+the+issue...'>let me know</a>.");
       }
     });
 
