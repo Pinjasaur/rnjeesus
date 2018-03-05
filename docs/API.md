@@ -36,6 +36,12 @@ All requests go through the `/api` base path.
 
 The signature for a request looks like `/<lower>..<upper>[@<quantity>][/(asc|dsc)]`.
 
+## Rate-Limiting
+
+The API is rate-limited on a per-IP basis at **20 requests/minute** allowing bursts of _up to_ 5 concurrent requests.
+
+If you're consistently hitting the rate-limit [let me know](https://github.com/Pinjasaur/rnjeesus/issues/new?title=API+Rate-Limiting+Issue&body=Explain+the+issue...) and we can work it out.
+
 ## Response
 
 The JSON response contains the following keys:
