@@ -9,6 +9,7 @@
 # THANKS
 
     The Internet
+    Stack Overflow
     Caffeine
 
 # TECHNOLOGY COLOPHON
