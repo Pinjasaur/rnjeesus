@@ -83,6 +83,8 @@ $callback = (isset($_GET['callback']) && $_GET['callback'] !== '') ?
   $_GET['callback'] :
   NULL;
 
+header('Access-Control-Allow-Origin: *');
+
 if ($callback !== NULL) {
 
   header('Content-Type: application/javascript');
