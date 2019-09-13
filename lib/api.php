@@ -83,12 +83,22 @@ $callback = (isset($_GET['callback']) && $_GET['callback'] !== '') ?
   $_GET['callback'] :
   NULL;
 
+// Provide plain-text if ?raw
+$raw = (isset($_GET['raw']) && $_GET['raw']) ?
+  $_GET['raw'] :
+  NULL;
+
 header('Access-Control-Allow-Origin: *');
 
 if ($callback !== NULL) {
 
   header('Content-Type: application/javascript');
   echo $callback . '(' . json_encode($response) . ');';
+
+} else if ($raw !== NULL) {
+
+  header('Content-Type: text/plain');
+  echo ($status) ? implode("\n", $data['values']) : $message;
 
 } else {
 
