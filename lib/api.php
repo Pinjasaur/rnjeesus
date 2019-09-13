@@ -90,6 +90,12 @@ $raw = (isset($_GET['raw']) && $_GET['raw']) ?
 
 header('Access-Control-Allow-Origin: *');
 
+if (!$status) {
+
+  http_response_code(400);
+
+}
+
 if ($callback !== NULL) {
 
   header('Content-Type: application/javascript');
