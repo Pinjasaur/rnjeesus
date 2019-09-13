@@ -23,7 +23,7 @@ function rng($lower, $upper, $quantity, $order) {
   }
 
   return [
-    'values' => ($order !== NULL) ? $sorted : $values,
+    'values' => ($order !== null) ? $sorted : $values,
     'statistics' => [
       'minimum' => min($values),
       'maximum' => max($values),

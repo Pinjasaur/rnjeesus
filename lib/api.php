@@ -25,23 +25,23 @@ $pattern .= '(?:\/([ad]sc))?/';
 $request = $_SERVER['REQUEST_URI'];
 
 // Assume it failed
-$status = FALSE;
+$status = false;
 $message = 'The RNG genie has blessed you.';
 $data = [];
 
 preg_match($pattern, $request, $match);
 
-$lower = (isset($match[1]) && $match[1] !== '') ? intval($match[1]) : NULL;
-$upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : NULL;
+$lower = (isset($match[1]) && $match[1] !== '') ? intval($match[1]) : null;
+$upper = (isset($match[2]) && $match[2] !== '') ? intval($match[2]) : null;
 
 // If not set, `quantity` defaults to 1
 $quantity = (isset($match[3]) && $match[3] !== '') ? intval($match[3]) : 1;
 
-// If not set, `sort` defaults to NULL
-$order = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : NULL;
+// If not set, `sort` defaults to null
+$order = (isset($match[4]) && $match[4] !== '') ? ($match[4]) : null;
 
 // Error checking
-if (!($lower !== NULL && $upper !== NULL)) {
+if (!($lower !== null && $upper !== null)) {
 
   $message = 'Needs a lower and upper bound.';
 
@@ -67,7 +67,7 @@ if (!($lower !== NULL && $upper !== NULL)) {
 
 } else {
 
-  $status = TRUE;
+  $status = true;
   $data = rng($lower, $upper, $quantity, $order);
 
 }
@@ -81,12 +81,12 @@ $response = [
 // Provide callback if it's a JSONP request
 $callback = (isset($_GET['callback']) && $_GET['callback'] !== '') ?
   $_GET['callback'] :
-  NULL;
+  null;
 
 // Provide plain-text if ?raw
 $raw = (isset($_GET['raw']) && $_GET['raw']) ?
   $_GET['raw'] :
-  NULL;
+  null;
 
 header('Access-Control-Allow-Origin: *');
 
@@ -96,12 +96,12 @@ if (!$status) {
 
 }
 
-if ($callback !== NULL) {
+if ($callback !== null) {
 
   header('Content-Type: application/javascript');
   echo $callback . '(' . json_encode($response) . ');';
 
-} else if ($raw !== NULL) {
+} else if ($raw !== null) {
 
   header('Content-Type: text/plain');
   echo ($status) ? implode("\n", $data['values']) : $message;
